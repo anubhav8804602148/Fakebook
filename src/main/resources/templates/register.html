@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Register | Fakebook</title>
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<div th:replace="loginRegisterNavbar.html"></div>
+	<div th:replace="galleryView.html"></div>
+	<form id="userRegistrationForm" th:object="${user}" method="POST" th:action="@{/registerProess}">
+		<table>
+			<caption>Register</caption>
+			<tr>
+				<td><label for="fname">First Name</label></td>
+				<td><input th:field="*{fname}" th:value="${user.fname}" type="text" id="fname" required></td>
+			</tr>
+			<tr>
+				<td><label for="lname">Last Name</label></td>
+				<td><input th:field="*{lname}" th:value="${user.lname}" type="text" id="lname" required></td>
+			</tr>
+			<tr>
+				<td><label for="email">Email</label></td>
+				<td><input th:field="*{email}" th:value="${user.email}" type="email" id="email" required></td>
+			</tr>
+			<tr>
+				<td><label for="password">Password</label></td>
+				<td><input th:field="*{password}" th:value="${user.password}" type="password" id="password" required></td>
+			</tr>
+			<tr>
+				<td><label for="confirmPassword">Confirm Password</label></td>
+				<td><input type="password" id="validateRegistrayionForm()" required></td>
+			</tr>
+			<tr>
+				<td><button style="float:right;margin:3%;">Reset</button></td>
+				<td><button style="margin:3%;" onClick="match">Submit</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+<style>
+	form{
+		padding:2%;
+	}
+	caption{
+		padding:5%;
+		font-size:28px;
+	}
+	#userRegistrationForm{
+		position:absolute;
+		top:20%;
+		right:5%;
+	}
+</style>
+</html>
